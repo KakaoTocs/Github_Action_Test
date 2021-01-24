@@ -13,9 +13,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build iPhoneOS
-      run: xcodebuild archive -scheme Github_Action_Test -archivePath "./build/ios.xcarchive" -sdk iphoneos SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
-    - name: Build iPhoneSimulator
-      run: xcodebuild archive -scheme Github_Action_Test -archivePath "./build/ios_sim.xcarchive" -sdk iphonesimulator SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+    #- name: Build iPhoneOS
+      #run: xcodebuild archive -scheme Github_Action_Test -archivePath "./build/ios.xcarchive" -sdk iphoneos SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
+    #- name: Build iPhoneSimulator
+      #run: xcodebuild archive -scheme Github_Action_Test -archivePath "./build/ios_sim.xcarchive" -sdk iphonesimulator SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild -scheme Github_Action_Test -destination 'platform=iOS Simulator, name=iPhone 8, OS=13.0' test
